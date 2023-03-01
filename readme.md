@@ -1,5 +1,11 @@
 # Book Club
 
+## Running the Application
+To run the application
+```
+flask --app bookclub run --debug
+```
+
 ## Project Structure
 The project directory will contain:
 - `bookclub/`, a Python package containing your application code and files.
