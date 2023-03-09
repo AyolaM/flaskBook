@@ -1,5 +1,4 @@
-import datetime
-
+import requests
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
@@ -98,4 +97,3 @@ def delete(id):
     db.execute('DELETE FROM book WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('book.index'))
-

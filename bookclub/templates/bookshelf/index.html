@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block content %}
+  {% include 'search/search_form.html' %}
+
   {% for book in books %}
     <article class="post">
       <header>

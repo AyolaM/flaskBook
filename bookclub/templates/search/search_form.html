@@ -1,0 +1,26 @@
+<form id="search-form">
+  <div>
+    <input type="text" id="query" name="query">
+    <button type="submit">Search</button>
+  </div>
+</form>
+
+<div id="search-results"></div>
+
+{% block scripts %}
+  <script>
+    const form = document.querySelector('#search-form');
+    const resultsContainer = document.querySelector('#search-results');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = document.querySelector('#query').value;
+      fetch(`/search?query=${query}`)
+        .then(response => response.text())
+        .then(html => {
+          resultsContainer.innerHTML = html;
+          resultsContainer.style.display = 'block';
+        });
+    });
+  </script>
+{% endblock %}

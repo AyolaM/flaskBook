@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Search Results for "{{ query }}"</h1>
+  <ul class="search-results">
+    {% for book in results %}
+    <a href="{{ url_for('search.search_detail', id=book.id) }}">
+      <li class="book card-link">
+        <img src="{{ book.cover_image }}" alt="{{ book.title }} cover">
+        <div class="book-info">
+          <h2>{{ book.title }}</h2>
+          <p>Author(s): {{ book.author }}</p>
+        </div>
+      </li>
+    </a>
+    {% endfor %}
+  </ul>
+{% endblock %}
